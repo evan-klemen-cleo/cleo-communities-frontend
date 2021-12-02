@@ -1,0 +1,60 @@
+$error: #e1bab3;
+$success: #47d7ab;
+$info: #9bdae8;
+$button-bg-primary: #ece8f1;
+$font: #323f48;
+
+$--primary: #330171;
+$--secondary: #6c757d;
+$--success: #47d7ab;
+$--info: #9bdae8;
+$--warning: #ffc107;
+$--danger: #e1bab3;
+
+$button-text-primary: $--primary;
+span,p,h1,h2,h3,h4,h5,div,body {
+  color: $font;
+}
+.App {
+  text-align: center;
+}
+
+.nav-brand {
+  display: flex;
+  h3 {
+    margin-bottom: -5px;
+  }
+  .App-logo {
+    height: 50px;
+    pointer-events: none;
+    margin-right: 8px;
+    color: $--primary;
+  }
+}
+
+.App-header {
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
