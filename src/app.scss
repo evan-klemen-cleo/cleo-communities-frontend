@@ -15,13 +15,31 @@ $button-text-primary: $--primary;
 span,p,h1,h2,h3,h4,h5,div,body {
   color: $font;
 }
+html, body, #root, .App {
+  height: 100%;
+}
+.h-100 {
+  height: 100%;
+}
+a, .link {
+  text-decoration: none;
+  //&:hover {
+  //  text-decoration: underline;
+  //  -webkit-transition-duration: 0.4s;
+  //  -moz-transition-duration: 0.4s;
+  //  -o-transition-duration: 0.4s;
+  //  transition-duration: 0.4s;
+  //}
+}
 .App {
   text-align: center;
 }
 
 .nav-brand {
   display: flex;
+  align-items: flex-end;
   h3 {
+    height: 100%;
     margin-bottom: -5px;
   }
   .App-logo {
@@ -42,18 +60,65 @@ span,p,h1,h2,h3,h4,h5,div,body {
   color: white;
 }
 
-
-.App-link {
-  color: #61dafb;
+.side-column {
+  height: 30vh;
+  min-height: 300px;
+  border-radius: 10px;
+  border: solid 1px $font;
+  background-color: $button-bg-primary;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.post-wrapper {
+  padding: 16px;
+  border-radius: 10px;
+  border: solid 1px $font;
+  margin-bottom: 18px;
+  .post-item {
+    text-align: left;
   }
-  to {
-    transform: rotate(360deg);
+  .comment-count {
+    text-align: right;
   }
+  .poll {
+    display: flex;
+    //.btn {
+    //  margin-right: 6px;
+    //}
+  }
+  .poll-results {
+    text-align: left;
+  }
+}
+
+.post-detail-wrapper {
+  border-bottom: 1px solid $--secondary;
+}
+
+/*
+Animations
+ */
+.link {
+  display: inline-block;
+  position: relative;
+  color: #0a58ca;
+}
+
+.link:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0a58ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.link:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 // Import Bootstrap and its default variables
