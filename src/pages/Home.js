@@ -10,7 +10,7 @@ function Home() {
         <h1>Welcome! Let's see what families are talking about today.</h1>
       </Col>
       <Row className="mt-4">
-        <Col xs={9}>
+        <Col xs={12}>
           <Post title="Anyone in the D.C. area want to join me and the kids for a hike?" blurb="I was looking to do either Barts trail or possibly going up to Sugar Mountain..." />
           <Post
             title="Which stroller do you prefer for two children?"
@@ -25,17 +25,6 @@ function Home() {
             title="My child is having a tongue tie revision. What was your experience like with recovery?"
             blurb="Any other tips, or things you wish you would have known before the procedure?"
           />
-        </Col>
-        <Col xs={3}>
-          <div className="side-column ml-2 p-3">
-            <h4>Trending Posts</h4>
-            <p>
-              <a href="https://localhost:3000">What car seats do you like/dislike?</a>
-            </p>
-            <p>
-              <a href="https://localhost:3000">[Poll] Is a bottle warmer worth it?</a>
-            </p>
-          </div>
         </Col>
       </Row>
     </Row>

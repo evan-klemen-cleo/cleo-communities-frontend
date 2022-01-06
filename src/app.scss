@@ -4,14 +4,37 @@ $info: #9bdae8;
 $button-bg-primary: #ece8f1;
 $font: #323f48;
 
-$--primary: #330171;
-$--secondary: #6c757d;
+$--primary: #34194E;
+$--secondary: #6A737B;
 $--success: #47d7ab;
 $--info: #9bdae8;
 $--warning: #ffc107;
 $--danger: #e1bab3;
 
+$cleo-purple-1: $--primary;
+$cleo-purple-2: #64456E;
+$cleo-purple-3: #ede2ef;
+
+$cleo-tan-1: #87645a;
+$cleo-tan-2: #ddc9b3;
+$cleo-tan-3: #e9ded1;
+
+$cleo-pink-1: #9b6b7e;
+$cleo-pink-2: #d5a6a6;
+$cleo-pink-3: #f6e4e4;
+
+
+
 $button-text-primary: $--primary;
+$soft-gray: #bdc3c7;
+@mixin box-padding {
+  padding: 53px 53px 30px 53px;
+}
+@mixin box {
+  border-radius: 20px;
+  background-color: #fff;
+}
+
 span,p,h1,h2,h3,h4,h5,div,body {
   color: $font;
 }
@@ -22,32 +45,32 @@ html, body, #root, .App {
   height: 100%;
 }
 a, .link {
+  color: black;
   text-decoration: none;
-  //&:hover {
-  //  text-decoration: underline;
-  //  -webkit-transition-duration: 0.4s;
-  //  -moz-transition-duration: 0.4s;
-  //  -o-transition-duration: 0.4s;
-  //  transition-duration: 0.4s;
-  //}
 }
 .App {
   text-align: center;
+  background-color: #ecf0f1;
+  .page {
+    background-color: white;
+    height: 100%;
+    &.posts {
+      background-color: $cleo-pink-2;
+    }
+  }
+}
+.font-12 {
+  font-size: 12px;
+}
+.font-22 {
+  font-size: 22px;
 }
 
-.nav-brand {
-  display: flex;
-  align-items: flex-end;
-  h3 {
-    height: 100%;
-    margin-bottom: -5px;
-  }
-  .App-logo {
-    height: 50px;
-    pointer-events: none;
-    margin-right: 8px;
-    color: $--primary;
-  }
+.App-logo {
+  height: 50px;
+  pointer-events: none;
+  margin-right: 8px;
+  color: $--primary;
 }
 
 .App-header {
@@ -61,23 +84,34 @@ a, .link {
 }
 
 .side-column {
+  @include box;
   height: 30vh;
   min-height: 300px;
-  border-radius: 10px;
-  border: solid 1px $font;
-  background-color: $button-bg-primary;
+  background-color: lighten($button-bg-primary, 20%);
+}
+
+.chip {
+  background-color: $cleo-purple-3;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  margin-right: 18px;
 }
 
 .post-wrapper {
-  padding: 16px;
-  border-radius: 10px;
-  border: solid 1px $font;
+  @include box;
   margin-bottom: 18px;
   .post-item {
     text-align: left;
   }
-  .comment-count {
-    text-align: right;
+  .post-meta {
+    font-size: 18px;
+    margin-right: 50px;
+    color: $--secondary;
+    span {
+      margin-left: 12px;
+      color: $--secondary;
+    }
   }
   .poll {
     display: flex;
@@ -94,31 +128,19 @@ a, .link {
   border-bottom: 1px solid $--secondary;
 }
 
-/*
-Animations
- */
-.link {
-  display: inline-block;
-  position: relative;
-  color: #0a58ca;
+.topbar {
+  height: 90px;
+  padding-top: 35px;
+  .notifications {
+    font-size: 18px;
+    color: $--primary;
+  }
+  &.posts {
+    background-color: #E9DED1;
+  }
 }
-
-.link:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #0a58ca;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-
-.link:hover:after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+.text-muted {
+  color: $--secondary;
 }
 
 // Import Bootstrap and its default variables
