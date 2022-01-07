@@ -1,7 +1,6 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Badge from 'react-bootstrap/Badge';
 import { Clock, Eye, ChatRight } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';

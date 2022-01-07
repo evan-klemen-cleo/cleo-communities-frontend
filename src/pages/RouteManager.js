@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
+import { matchPath } from 'react-router';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Col from 'react-bootstrap/Col';
@@ -13,18 +14,23 @@ import Home from './Home';
 import PostDetails from './PostDetails';
 import Landing from './Landing';
 import { Bell } from 'react-bootstrap-icons';
+import PostList from './PostList';
 
 function App() {
   const { pathname } = useLocation();
-  console.log('location-------->', pathname);
+  const isPostDetailsRoute = matchPath('/posts/:id', pathname);
+  console.log('isPostDetailsRoute-------->', isPostDetailsRoute);
   const waveFill = {
-    '/posts': '#E9DED1'
+    '/posts': '#E9DED1',
+    '/posts/trending': '#E9DED1'
   };
   const topbarClasses = classNames('topbar', {
-    posts: pathname === '/posts'
+    posts: (pathname === '/posts') || (pathname === '/posts/trending'),
+    'post-detail': Boolean(isPostDetailsRoute)
   });
   const pageClasses = classNames('page', {
-    posts: pathname === '/posts'
+    posts: (pathname === '/posts') || (pathname === '/posts/trending'),
+    'post-detail': Boolean(isPostDetailsRoute)
   })
   return (
     <div className={pageClasses}>
@@ -48,15 +54,18 @@ function App() {
       <div style={{ height: '150px', overflow: 'hidden' }} className="wave">
         <svg viewBox="0 0 500 150" preserveAspectRatio="none" style={{ height: '100%', width: '100%' }}>
           <path d="M-34.71,13.33 C174.09,264.97 293.16,-98.17 535.83,179.13 L504.79,-10.34 L0.00,0.00 Z"
-                style={{ stroke: 'none', fill: waveFill[pathname] }}/>
+                style={{ stroke: 'none', fill: waveFill[pathname] || '#f6e4e4' }}/>
         </svg>
       </div>
 
       <Container className="mt-5 h-100">
         <Routes>
           <Route exact="/landing" element={<Landing/>}/>
+          <Route path="/posts" element={<Home/>}>
+            <Route path="/posts" element={<PostList />}/>
+            <Route path="trending" element={<PostList trending />}/>
+          </Route>
           <Route path="/posts/:id" element={<PostDetails/>}/>
-          <Route path="/posts" element={<Home/>}/>
           <Route path="/" element={<Navigate replace to="/posts"/>}/>
         </Routes>
       </Container>

@@ -48,6 +48,17 @@ a, .link {
   color: black;
   text-decoration: none;
 }
+.nav-link {
+  color: black !important;
+  text-decoration: none;
+  &:hover {
+    color: lighten(black, 25%);
+  }
+  &.active {
+    color: $--primary !important;
+    text-decoration: underline;
+  }
+}
 .App {
   text-align: center;
   background-color: #ecf0f1;
@@ -56,6 +67,9 @@ a, .link {
     height: 100%;
     &.posts {
       background-color: $cleo-pink-2;
+    }
+    &.post-detail {
+      background-color: white;
     }
   }
 }
@@ -137,6 +151,9 @@ a, .link {
   }
   &.posts {
     background-color: #E9DED1;
+  }
+  &.post-detail {
+    background-color: $cleo-pink-3;
   }
 }
 .text-muted {
