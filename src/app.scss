@@ -23,6 +23,9 @@ $cleo-pink-1: #9b6b7e;
 $cleo-pink-2: #d5a6a6;
 $cleo-pink-3: #f6e4e4;
 
+$theme-colors: (
+ primary: $--primary
+);
 
 
 $button-text-primary: $--primary;
@@ -39,10 +42,10 @@ span,p,h1,h2,h3,h4,h5,div,body {
   color: $font;
 }
 html, body, #root, .App {
-  height: 100%;
+  height: 100% !important;
 }
 .h-100 {
-  height: 100%;
+  height: 100% !important;
 }
 a, .link {
   color: black;
@@ -51,6 +54,7 @@ a, .link {
 .nav-link {
   color: black !important;
   text-decoration: none;
+  font-size: 18px;
   &:hover {
     color: lighten(black, 25%);
   }
@@ -64,7 +68,7 @@ a, .link {
   background-color: #ecf0f1;
   .page {
     background-color: white;
-    height: 100%;
+    height: 100% !important;
     &.posts {
       background-color: $cleo-pink-2;
     }
@@ -78,6 +82,9 @@ a, .link {
 }
 .font-22 {
   font-size: 22px;
+}
+.font-34 {
+  font-size: 34px;
 }
 
 .App-logo {
@@ -112,20 +119,24 @@ a, .link {
   margin-right: 18px;
 }
 
+.post-meta {
+  font-size: 18px;
+  margin-right: 50px;
+  color: $--secondary;
+  span {
+    margin-left: 12px;
+    color: $--secondary;
+  }
+  svg {
+    font-size: 24px;
+  }
+}
+
 .post-wrapper {
   @include box;
   margin-bottom: 18px;
   .post-item {
     text-align: left;
-  }
-  .post-meta {
-    font-size: 18px;
-    margin-right: 50px;
-    color: $--secondary;
-    span {
-      margin-left: 12px;
-      color: $--secondary;
-    }
   }
   .poll {
     display: flex;
@@ -136,10 +147,6 @@ a, .link {
   .poll-results {
     text-align: left;
   }
-}
-
-.post-detail-wrapper {
-  border-bottom: 1px solid $--secondary;
 }
 
 .topbar {
@@ -158,6 +165,38 @@ a, .link {
 }
 .text-muted {
   color: $--secondary;
+}
+
+.comment-form-wrapper {
+  position: relative;
+}
+.comment-input {
+  border-radius: 20px !important;
+  padding: 20px !important;
+  font-size: 24px !important;
+}
+.comment-submit {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+.username {
+  color: $cleo-purple-2;
+  font-size: 22px;
+  margin: 0 0 0 18px;
+  height: 24px;
+}
+.reply-link {
+  color: $--primary !important;
+  padding: 2px !important;
+  font-size: 22px !important;
+  text-decoration: none !important;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1140px !important;
+  }
 }
 
 // Import Bootstrap and its default variables

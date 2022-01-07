@@ -1,10 +1,11 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
 
 const Landing = () => {
   return (
-    <div>
+    <Container className="mt-5 h-100">
       Landing Page
-    </div>
+    </Container>
   );
 };
 

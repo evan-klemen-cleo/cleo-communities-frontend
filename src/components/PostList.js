@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { useLocation } from 'react-router-dom';
-import Post from '../components/Post';
+import Post from './Post';
 
 const PostList = ({ trending }) => {
   const { pathname } = useLocation();

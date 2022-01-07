@@ -1,8 +1,6 @@
 import React from 'react';
 import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import { matchPath } from 'react-router';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
@@ -14,12 +12,12 @@ import Home from './Home';
 import PostDetails from './PostDetails';
 import Landing from './Landing';
 import { Bell } from 'react-bootstrap-icons';
-import PostList from './PostList';
+import PostList from '../components/PostList';
 
 function App() {
   const { pathname } = useLocation();
-  const isPostDetailsRoute = matchPath('/posts/:id', pathname);
-  console.log('isPostDetailsRoute-------->', isPostDetailsRoute);
+  const postDetailsRouteObject = matchPath('/posts/:id', pathname);
+  const isPostDetailsRoute = postDetailsRouteObject && !postDetailsRouteObject?.params?.id.includes('trending');
   const waveFill = {
     '/posts': '#E9DED1',
     '/posts/trending': '#E9DED1'
@@ -58,7 +56,7 @@ function App() {
         </svg>
       </div>
 
-      <Container className="mt-5 h-100">
+      <div className={`mt-5 h-100 ${pageClasses}`}>
         <Routes>
           <Route exact="/landing" element={<Landing/>}/>
           <Route path="/posts" element={<Home/>}>
@@ -68,7 +66,7 @@ function App() {
           <Route path="/posts/:id" element={<PostDetails/>}/>
           <Route path="/" element={<Navigate replace to="/posts"/>}/>
         </Routes>
-      </Container>
+      </div>
     </div>
   );
 }
