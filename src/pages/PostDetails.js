@@ -28,7 +28,7 @@ const PostDetails = () => {
         <Row>
           <Col xs={12} className="post-detail-top text-start mb-4">
             <h3 className="font-34">Anyone in the D.C. area want to join me and the kids for a hike?</h3>
-            <p className="text-muted font-22">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue enim nunc,
+            <p className="text-muted font-22 font-noto font-weight-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue enim nunc,
               a
               ultrices felis rutrum eget. Suspendisse molestie, enim ac venenatis tristique, dui ante auctor lectus, sed
               facilisis nunc nibh molestie eros. Sed ultricies mauris ligula, nec iaculis nunc sollicitudin nec. Proin
@@ -37,7 +37,7 @@ const PostDetails = () => {
         </Row>
       </Container>
       <hr/>
-      <Container>
+      <Container className="mb-5 h-100">
         <Row>
           <Col xs={12} className="my-5">
             <PostMeta />
@@ -53,7 +53,17 @@ const PostDetails = () => {
             </Form>
           </Col>
         </Row>
-        <Comment />
+        <Row>
+          <Col xs={12}>
+            <Comment />
+          </Col>
+          <Col xs={12} className="reply-1">
+            <Comment />
+            <Col xs={12} className="reply-2">
+              <Comment />
+            </Col>
+          </Col>
+        </Row>
       </Container>
     </>
   );

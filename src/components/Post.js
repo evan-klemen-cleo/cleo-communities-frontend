@@ -39,8 +39,8 @@ function Post({ title, blurb, poll }) {
       </Row>
       <Col xs={12} style={{padding: '0 53px 53px 53px'}}>
         <div className="post-item">
-          <h3><Link to="/posts/1234" className="link">{title}</Link></h3>
-          <p className="text-muted font-22">{blurb}</p>
+          <h3><Link to="/posts/1234" className="link font-weight-400 font-noto">{title}</Link></h3>
+          <p className="text-muted font-22 font-noto font-weight-300 mt-4">{blurb}</p>
         </div>
         {
           poll && <Poll pollDetails={pollDetails}/>

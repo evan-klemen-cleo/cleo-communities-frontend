@@ -37,6 +37,31 @@ $soft-gray: #bdc3c7;
   border-radius: 20px;
   background-color: #fff;
 }
+//font-family: 'Noto Serif', serif;
+//font-family: 'Open Sans', sans-serif;
+span, p, button, div, a {
+  font-family: 'Open Sans', sans-serif;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Noto Serif', serif;
+}
+.font-os {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+.font-noto {
+  font-family: 'Noto Serif', serif;
+  font-weight: 600;
+}
+.font-weight-300 {
+  font-weight: 300;
+}
+.font-weight-400 {
+  font-weight: 400;
+}
+.font-weight-600 {
+  font-weight: 600;
+}
 
 span,p,h1,h2,h3,h4,h5,div,body {
   color: $font;
@@ -66,16 +91,6 @@ a, .link {
 .App {
   text-align: center;
   background-color: #ecf0f1;
-  .page {
-    background-color: white;
-    height: 100% !important;
-    &.posts {
-      background-color: $cleo-pink-2;
-    }
-    &.post-detail {
-      background-color: white;
-    }
-  }
 }
 .font-12 {
   font-size: 12px;
@@ -85,6 +100,9 @@ a, .link {
 }
 .font-34 {
   font-size: 34px;
+}
+.font-66 {
+  font-size: 66px;
 }
 
 .App-logo {
@@ -117,6 +135,7 @@ a, .link {
   padding: 5px;
   font-size: 16px;
   margin-right: 18px;
+  font-weight: 600;
 }
 
 .post-meta {
@@ -149,19 +168,52 @@ a, .link {
   }
 }
 
-.topbar {
-  height: 90px;
-  padding-top: 35px;
-  .notifications {
-    font-size: 18px;
-    color: $--primary;
-  }
+.page {
+  background-color: white;
+  height: 100% !important;
   &.posts {
-    background-color: #E9DED1;
+    background-color: $cleo-pink-2;
   }
   &.post-detail {
-    background-color: $cleo-pink-3;
+    background-color: white;
   }
+  &.landing {
+    background-color: $--primary;
+  }
+  .topbar {
+    height: 90px;
+    padding-top: 35px;
+    z-index: 2;
+    position: relative;
+    .notifications {
+      font-size: 18px;
+      color: $--primary;
+    }
+    &.posts {
+      background-color: #E9DED1;
+    }
+    &.post-detail {
+      background-color: $cleo-purple-3;
+    }
+    &.landing {
+      background-color: $cleo-pink-3;
+    }
+  }
+}
+.landing-image {
+  background: url("./assets/landing-img.png") no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+  margin-top: -24%;
+}
+.login-btn {
+  background-color: #fff !important;
+  color: $--primary !important;
+  font-size: 18px !important;
+  width: 170px;
+  height: 54px;
+  border-radius: 5px;
 }
 .text-muted {
   color: $--secondary;
@@ -179,6 +231,7 @@ a, .link {
   position: absolute;
   right: 20px;
   bottom: 20px;
+  font-weight: 600 !important;
 }
 .username {
   color: $cleo-purple-2;
@@ -191,6 +244,18 @@ a, .link {
   padding: 2px !important;
   font-size: 22px !important;
   text-decoration: none !important;
+}
+
+.reply-1 {
+  border-left: 1px solid lightgray;
+  .comment-wrapper {
+    padding-left: 5em;
+  }
+}
+.reply-2 {
+  margin-left: 5em;
+  width: calc(100% - 5em) !important;
+  border-left: 1px solid lightgray;
 }
 
 @media (min-width: 1400px) {

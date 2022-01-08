@@ -20,16 +20,16 @@ function App() {
   const isPostDetailsRoute = postDetailsRouteObject && !postDetailsRouteObject?.params?.id.includes('trending');
   const waveFill = {
     '/posts': '#E9DED1',
-    '/posts/trending': '#E9DED1'
+    '/posts/trending': '#E9DED1',
+    '/landing': '#f6e4e4'
   };
-  const topbarClasses = classNames('topbar', {
-    posts: (pathname === '/posts') || (pathname === '/posts/trending'),
-    'post-detail': Boolean(isPostDetailsRoute)
-  });
-  const pageClasses = classNames('page', {
-    posts: (pathname === '/posts') || (pathname === '/posts/trending'),
-    'post-detail': Boolean(isPostDetailsRoute)
-  })
+  const routeColorClasses = {
+    posts: ['/posts', '/posts/trending'].includes(pathname),
+    'post-detail': Boolean(isPostDetailsRoute),
+    landing: pathname === '/landing'
+  };
+  const topbarClasses = classNames('topbar', routeColorClasses);
+  const pageClasses = classNames('page', routeColorClasses)
   return (
     <div className={pageClasses}>
       <div className={topbarClasses}>
@@ -42,26 +42,31 @@ function App() {
             </Col>
             <Col xs={{ offset: 8, span: 2 }}>
               <div className="notifications">
-                <Bell className="mx-1" />
+                <Bell className="mx-1"/>
                 Notifications
               </div>
             </Col>
           </Row>
         </Container>
       </div>
-      <div style={{ height: '150px', overflow: 'hidden' }} className="wave">
+      <div style={{
+        height: '150px',
+        overflow: 'hidden',
+        position: 'relative',
+        zIndex: 2,
+      }}>
         <svg viewBox="0 0 500 150" preserveAspectRatio="none" style={{ height: '100%', width: '100%' }}>
           <path d="M-34.71,13.33 C174.09,264.97 293.16,-98.17 535.83,179.13 L504.79,-10.34 L0.00,0.00 Z"
-                style={{ stroke: 'none', fill: waveFill[pathname] || '#f6e4e4' }}/>
+                style={{ stroke: 'none', fill: waveFill[pathname] || '#ede2ef' }}/>
         </svg>
       </div>
 
       <div className={`mt-5 h-100 ${pageClasses}`}>
         <Routes>
-          <Route exact="/landing" element={<Landing/>}/>
+          <Route path="/landing" element={<Landing/>}/>
           <Route path="/posts" element={<Home/>}>
-            <Route path="/posts" element={<PostList />}/>
-            <Route path="trending" element={<PostList trending />}/>
+            <Route path="/posts" element={<PostList/>}/>
+            <Route path="trending" element={<PostList trending/>}/>
           </Route>
           <Route path="/posts/:id" element={<PostDetails/>}/>
           <Route path="/" element={<Navigate replace to="/posts"/>}/>

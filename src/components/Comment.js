@@ -8,13 +8,13 @@ import Row from 'react-bootstrap/Row';
 const Comment = () => {
   const rand = (max, offset = 1) => Math.floor(Math.random() * max) + offset;
   return (
-    <Row className="my-3">
+    <Row className="my-3 comment-wrapper">
       <Col xs={12} className="text-start d-flex flex-row align-items-center">
         <Image src="https://www.fillmurray.com/50/50" roundedCircle />
-        <h4 className="username">@username</h4>
+        <h4 className="username font-os font-weight-400">@username</h4>
       </Col>
       <Col xs={12} className="text-start mt-4">
-        <p className="text-muted font-22">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue enim nunc, a ultrices felis rutrum eget.</p>
+        <p className="text-muted font-22 font-noto font-weight-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue enim nunc, a ultrices felis rutrum eget.</p>
       </Col>
       <Col xs={12} className="mt-3 d-flex flex-row align-items-center">
             <span className="text-muted font-22">
